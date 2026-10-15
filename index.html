@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Traci | FAWYL Original Tester</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+  --yellow: #ffe600;
+  --pink: #ff3ca6;
+  --blue: #34d9ff;
+  --purple: #824cff;
+  --green: #48f0a4;
+  --black: #111111;
+  --cream: #fffcef;
+  --white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Karla", sans-serif;
+  background:
+    radial-gradient(circle at top left, rgba(255,60,166,.25), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(52,217,255,.25), transparent 35%),
+    #101018;
+  color: var(--white);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 70px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: min(900px, 100%);
+}
+
+.card {
+  background: var(--cream);
+  color: var(--black);
+  border: 4px solid var(--black);
+  border-radius: 28px;
+  padding: 45px;
+  box-shadow: 12px 12px 0 var(--black);
+  position: relative;
+  overflow: hidden;
+}
+
+.badge {
+  display: inline-block;
+  background: var(--yellow);
+  border: 3px solid var(--black);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: .85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Space Grotesk", sans-serif;
+  margin-top: 0;
+}
+
+h1 {
+  font-size: clamp(3rem, 9vw, 6.4rem);
+  line-height: .9;
+  margin-bottom: 22px;
+}
+
+h2 {
+  font-size: clamp(2.1rem, 6vw, 4rem);
+  line-height: 1;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.big-copy {
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+.small {
+  opacity: .7;
+}
+
+.btn {
+  border: 3px solid var(--black);
+  border-radius: 15px;
+  background: var(--pink);
+  color: var(--black);
+  padding: 15px 22px;
+  font-weight: 900;
+  box-shadow: 5px 5px 0 var(--black);
+  transition: .15s ease;
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 18px;
+}
+
+.btn:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 2px 2px 0 var(--black);
+}
+
+.btn.blue {
+  background: var(--blue);
+}
+
+.btn.yellow {
+  background: var(--yellow);
+}
+
+.btn.green {
+  background: var(--green);
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.merch {
+  padding: 20px;
+  border: 3px solid var(--black);
+  border-radius: 18px;
+  font-weight: 800;
+  background: white;
+}
+
+.status {
+  margin-top: 30px;
+  background: var(--black);
+  color: white;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.status p {
+  margin: 8px 0;
+}
+
+/* SCRATCH */
+
+.scratch-wrap {
+  max-width: 680px;
+  margin: 30px auto;
+}
+
+.scratch-card {
+  position: relative;
+  width: 100%;
+  min-height: 330px;
+  border: 4px solid var(--black);
+  border-radius: 25px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, var(--pink), transparent 50%),
+    linear-gradient(135deg, var(--purple), var(--blue));
+}
+
+.reveal-content {
+  min-height: 330px;
+  padding: 45px 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+}
+
+.reveal-content h2 {
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  margin-bottom: 10px;
+}
+
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+  z-index: 5;
+}
+
+.scratch-note {
+  text-align: center;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+/* GAME */
+
+.game-area {
+  display: none;
+}
+
+.game-panel {
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  padding: 25px;
+  background: white;
+  margin-top: 25px;
+}
+
+.progress-shell {
+  height: 30px;
+  background: #ddd;
+  border: 3px solid var(--black);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 25px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--green);
+  transition: width .25s ease;
+}
+
+.task-box {
+  padding: 30px;
+  border: 3px solid var(--black);
+  border-radius: 20px;
+  background: var(--cream);
+  text-align: center;
+  margin-top: 20px;
+}
+
+.task-button {
+  width: 100%;
+  min-height: 100px;
+  border: 4px solid var(--black);
+  border-radius: 18px;
+  background: var(--blue);
+  font-size: 1.4rem;
+  font-weight: 900;
+  box-shadow: 6px 6px 0 var(--black);
+}
+
+.task-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 var(--black);
+}
+
+.dance-alert {
+  display: none;
+  margin-top: 25px;
+  padding: 30px;
+  border: 4px solid var(--black);
+  border-radius: 20px;
+  background:
+    linear-gradient(
+      135deg,
+      var(--pink),
+      var(--yellow),
+      var(--blue)
+    );
+  text-align: center;
+  animation: pulseDance .55s infinite alternate;
+}
+
+@keyframes pulseDance {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.025);
+  }
+}
+
+.dance-alert h2 {
+  font-size: clamp(3rem, 10vw, 6rem);
+  margin-bottom: 10px;
+}
+
+.dance-button {
+  border: 4px solid var(--black);
+  border-radius: 18px;
+  padding: 18px 25px;
+  background: white;
+  font-weight: 900;
+  font-size: 1.25rem;
+  box-shadow: 5px 5px 0 var(--black);
+}
+
+.game-message {
+  min-height: 40px;
+  margin-top: 20px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+.result-box {
+  display: none;
+  margin-top: 25px;
+  padding: 25px;
+  border: 3px solid var(--black);
+  border-radius: 18px;
+  background: var(--yellow);
+  text-align: center;
+}
+
+/* FEEDBACK */
+
+.feedback {
+  display: none;
+}
+
+.rating-row {
+  margin: 25px 0;
+}
+
+.rating-row label {
+  display: block;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.rating-row select,
+textarea {
+  width: 100%;
+  padding: 14px;
+  border: 3px solid var(--black);
+  border-radius: 12px;
+  background: white;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+  margin-top: 8px;
+}
+
+/* CHROME CARD */
+
+.collector-section {
+  display: none;
+}
+
+.flip-wrap {
+  perspective: 1600px;
+  max-width: 430px;
+  margin: 45px auto;
+}
+
+.collector-card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2.5 / 3.5;
+  transform-style: preserve-3d;
+  transition: transform .75s cubic-bezier(.2,.7,.2,1);
+  cursor: pointer;
+}
+
+.collector-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 26px;
+  padding: 28px;
+  overflow: hidden;
+  border: 2px solid rgba(255,255,255,.55);
+  box-shadow:
+    0 0 0 2px #111,
+    0 20px 60px rgba(0,0,0,.45),
+    inset 0 0 30px rgba(255,255,255,.08);
+}
+
+.card-face::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255,255,255,.35) 12%,
+      transparent 22%,
+      rgba(0,255,255,.18) 38%,
+      rgba(255,0,255,.15) 52%,
+      transparent 68%,
+      rgba(255,255,255,.28) 82%,
+      transparent 100%
+    );
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.card-face::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background:
+    conic-gradient(
+      from 0deg,
+      rgba(0,255,255,.15),
+      rgba(255,0,255,.18),
+      rgba(255,255,0,.12),
+      rgba(0,255,255,.15)
+    );
+  animation: holoSpin 8s linear infinite;
+  opacity: .45;
+  pointer-events: none;
+}
+
+@keyframes holoSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card-front {
+  background:
+    linear-gradient(
+      145deg,
+      #0b0b0f 0%,
+      #1c1c22 28%,
+      #444851 48%,
+      #111318 68%,
+      #050506 100%
+    );
+  color: white;
+}
+
+.card-back {
+  background:
+    linear-gradient(
+      145deg,
+      #16181d 0%,
+      #3d4148 30%,
+      #111 55%,
+      #22262d 100%
+    );
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card-content {
+  position: relative;
+  z-index: 3;
+}
+
+.card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .85;
+}
+
+.chrome-title {
+  margin-top: 36px;
+  font-size: clamp(2.4rem, 8vw, 4.2rem);
+  line-height: .92;
+  letter-spacing: -.04em;
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #c9c9c9 20%,
+      #ffffff 42%,
+      #7f848c 58%,
+      #eeeeee 75%,
+      #8f949c 100%
+    );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-transform: uppercase;
+}
+
+.chrome-subtitle {
+  margin-top: 16px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  color: #d9d9d9;
+}
+
+.tester-stamp {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 8px 13px;
+  border: 1px solid rgba(255,255,255,.6);
+  border-radius: 999px;
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  background: rgba(255,255,255,.06);
+}
+
+.card-rule {
+  height: 1px;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.7),
+      transparent
+    );
+  margin: 28px 0;
+}
+
+.card-label {
+  font-size: .72rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 5px;
+}
+
+.card-value {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.meter {
+  margin: 7px 0 20px;
+  font-family: monospace;
+  font-size: 1.35rem;
+  letter-spacing: .1em;
+}
+
+.flip-hint {
+  position: absolute;
+  bottom: 22px;
+  left: 28px;
+  right: 28px;
+  text-align: center;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  opacity: .7;
+}
+
+.chrome-orb {
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  right: -45px;
+  bottom: 45px;
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      #ffffff 0%,
+      #a9faff 14%,
+      #7e64ff 34%,
+      #ff5ad9 50%,
+      #20242b 72%,
+      #000 100%
+    );
+  box-shadow:
+    inset -15px -15px 35px rgba(0,0,0,.5),
+    0 0 45px rgba(110,220,255,.16);
+  z-index: 1;
+}
+
+.footer {
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 650px) {
+  .card {
+    padding: 28px 22px;
+    border-radius: 20px;
+    box-shadow: 7px 7px 0 var(--black);
+  }
+
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 45px 14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="page" id="welcome">
+  <div class="container">
+    <div class="card">
+
+      <span class="badge">FAWYL Original Tester</span>
+
+      <h1>HEY,<br>TRACI.</h1>
+
+      <p class="big-copy">
+        You found the weird little corner of the internet we made specifically for you.
+      </p>
+
+      <p class="big-copy">
+        Welcome to your <strong>FAWYL Tester Portal.</strong>
+      </p>
+
+      <p class="big-copy">
+        You're one of the first people getting your hands on
+        <em>Fail at What You Love</em> before Season 1 exists out in the world.
+      </p>
+
+      <h3>
+        If something breaks, congratulations.<br>
+        That's literally why you're here.
+      </h3>
+
+      <a href="#merch" class="btn">
+        LET'S GO →
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="page" id="merch">
+  <div class="container">
+    <div class="card">
+
+      <span class="badge">Tiny Confession</span>
+
+      <h2>FIRST: YOUR STUFF IS COMING. 😂</h2>
+
+      <p class="big-copy">
+        I have not forgotten your merch.
+      </p>
+
+      <p class="big-copy">
+        Your merch is not lost.
+      </p>
+
+      <p class="big-copy">
+        I am apparently just <strong>holding it for ransom.</strong>
+      </p>
+
+      <p>
+        Building this whole ridiculous thing is expensive, my car is currently
+        being fixed, and once it's back and I can reliably make it down the road
+        again, I'll be making deliveries and getting everything moving.
+      </p>
+
+      <p>
+        That's the very unglamorous behind-the-scenes truth.
+      </p>
+
+      <p>
+        But I didn't want you sitting around waiting for a package before you
+        got to be part of this.
+      </p>
+
+      <h3>Your Tester Drop</h3>
+
+      <div class="merch-grid">
+        <div class="merch">🧥 FAWYL Hoodie</div>
+        <div class="merch">👕 FAWYL Shirt</div>
+
+        <div class="merch">
+          🎁 Bonus Gift #1<br>
+          <span class="small">CLASSIFIED</span>
+        </div>
+
+        <div class="merch">
+          🎁 Bonus Gift #2<br>
+          <span class="small">EXTREMELY CLASSIFIED</span>
+        </div>
+      </div>
+
+      <div class="status">
+        <strong>CURRENT STATUS:</strong>
+
+        <p>🚗 Creator currently defeated by transportation.</p>
+        <p>📦 Merch safe.</p>
+        <p>❤️ Traci absolutely not forgotten.</p>
+      </div>
+
+      <a href="#reveal" class="btn blue">
+        OKAY BUT WHAT DID I GET? →
+      </a>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="page" id="reveal">
+  <div class="container">
+    <div class="card">
+
+      <span class="badge">Your Game Is Waiting</span>
+
+      <h2>SCRATCH TO REVEAL IT.</h2>
+
+      <p>
+        Every original tester is getting an early digital version of a Season 1 game.
+      </p>
+
+      <p>
+        But I'm not just telling you which one.
+      </p>
+
+      <p><strong>Obviously.</strong></p>
+
+      <div class="scratch-wrap">
+
+        <div class="scratch-card">
+
+          <div class="reveal-content">
+
+            <p>
+              SEASON 1 ORIGINAL TESTER EDITION
+            </p>
+
+            <h2>
+              MUSICAL<br>MESS
+            </h2>
+
+            <p>
+              <strong>ROUND:</strong>
+              Surprise, It's Worse!
+            </p>
+
+            <button class="btn yellow" id="openGameBtn">
+              OPEN MY GAME →
+            </button>
+
+          </div>
+
+          <canvas id="scratchCanvas"></canvas>
+
+        </div>
+
+        <div class="scratch-note">
+          👆 Use your mouse or finger to scratch the card.
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="page game-area" id="game">
+  <div class="container">
+    <div class="card">
+
+      <span class="badge">
+        Season 1 Test Game
+      </span>
+
+      <h2>
+        MUSICAL MESS
+      </h2>
+
+      <p class="big-copy">
+        Complete your extremely important task.
+      </p>
+
+      <h3>
+        Unfortunately, we reserve the right to interrupt you with mandatory dancing.
+      </h3>
+
+      <div class="status">
+
+        <strong>HOW THIS WORKS</strong>
+
+        <p>🧩 Complete 8 task steps.</p>
+        <p>👆 Hit the task button to make progress.</p>
+        <p>🎵 Randomly, the music will interrupt you.</p>
+        <p>💃 When DANCE appears, stop everything and hit the dance button.</p>
+        <p>💀 Ignore a dance cue and you'll lose progress.</p>
+
+      </div>
+
+      <div class="game-panel">
+
+        <h3>
+          TASK PROGRESS
+        </h3>
+
+        <div class="progress-shell">
+
+          <div
+            class="progress-bar"
+            id="progressBar"
+          ></div>
+
+        </div>
+
+        <p style="text-align:center;font-weight:900;">
+          <span id="progressNumber">0</span> / 8 COMPLETE
+        </p>
+
+        <div class="task-box">
+
+          <p>
+            Your official task:
+          </p>
+
+          <h3>
+            ORGANIZE THE COMPLETELY IMAGINARY STACK OF OBJECTS
+          </h3>
+
+          <button
+            class="task-button"
+            id="taskButton"
+          >
+            COMPLETE NEXT TASK STEP
+          </button>
+
+        </div>
+
+        <div
+          class="dance-alert"
+          id="danceAlert"
+        >
+
+          <h2>
+            DANCE!
+          </h2>
+
+          <p>
+            STOP WHAT YOU'RE DOING.
+          </p>
+
+          <button
+            class="dance-button"
+            id="danceButton"
+          >
+            💃 I DANCED
+          </button>
+
+        </div>
+
+        <div
+          class="game-message"
+          id="gameMessage"
+        ></div>
+
+        <div
+          class="result-box"
+          id="resultBox"
+        >
+
+          <h2>
+            YOU FINISHED.
+          </h2>
+
+          <p class="big-copy">
+            Against all musical interference.
+          </p>
+
+          <p>
+            HR has been notified about the dancing.
+          </p>
+
+          <button
+            class="btn"
+            id="feedbackBtn"
+          >
+            GIVE TESTER FEEDBACK →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section
+  class="page feedback"
+  id="feedback"
+>
+
+  <div class="container">
+
+    <div class="card">
+
+      <span class="badge">
+        Tester Check-In
+      </span>
+
+      <h2>
+        WELL.
+      </h2>
+
+      <p class="big-copy">
+        You completed your task.
+      </p>
+
+      <p>
+        And apparently attended several surprise dance breaks.
+      </p>
+
+      <div class="rating-row">
+
+        <label>
+          How fun was it?
+        </label>
+
+        <select id="funRating">
+          <option value="">Choose one</option>
+          <option>⭐</option>
+          <option>⭐⭐</option>
+          <option>⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐⭐</option>
+        </select>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          How easy were the rules to understand?
+        </label>
+
+        <select id="rulesRating">
+          <option value="">Choose one</option>
+          <option>⭐</option>
+          <option>⭐⭐</option>
+          <option>⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐⭐</option>
+        </select>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          How difficult was the actual game?
+        </label>
+
+        <select id="difficultyRating">
+          <option value="">Choose one</option>
+          <option>⭐</option>
+          <option>⭐⭐</option>
+          <option>⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐</option>
+          <option>⭐⭐⭐⭐⭐</option>
+        </select>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          Would you willingly play this again?
+        </label>
+
+        <select id="playAgain">
+          <option value="">Choose one</option>
+          <option>Absolutely</option>
+          <option>Maybe</option>
+          <option>I have suffered enough</option>
+        </select>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          What confused you?
+        </label>
+
+        <textarea id="confused"></textarea>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          What was your favorite part?
+        </label>
+
+        <textarea id="favorite"></textarea>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          What would you change?
+        </label>
+
+        <textarea id="change"></textarea>
+
+      </div>
+
+      <div class="rating-row">
+
+        <label>
+          Did anything break or behave weirdly?
+        </label>
+
+        <textarea id="broken"></textarea>
+
+      </div>
+
+      <button
+        class="btn green"
+        id="submitFeedback"
+      >
+        SAVE MY FEEDBACK →
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<section
+  class="page collector-section"
+  id="collector"
+>
+
+  <div class="container">
+
+    <div class="card">
+
+      <span class="badge">
+        One More Thing
+      </span>
+
+      <h2>
+        YOUR COLLECTOR CARD.
+      </h2>
+
+      <p>
+        You're part of the group helping build Season 1.
+      </p>
+
+      <h3>
+        Which means you're officially one of the people who were here before
+        we knew whether any of this actually worked.
+      </h3>
+
+      <div class="flip-wrap">
+
+        <div
+          class="collector-card"
+          id="collectorCard"
+        >
+
+          <div class="card-face card-front">
+
+            <div class="chrome-orb"></div>
+
+            <div class="card-content">
+
+              <div class="card-topline">
+
+                <span>
+                  FAWYL // ORIGINAL TESTER
+                </span>
+
+                <span>
+                  04 / 09
+                </span>
+
+              </div>
+
+              <div class="card-rule"></div>
+
+              <div class="chrome-title">
+                TRACI
+              </div>
+
+              <div class="chrome-subtitle">
+                Musical Mess
+              </div>
+
+              <div class="tester-stamp">
+                Pre-Season Test Run
+              </div>
+
+              <div class="card-rule"></div>
+
+              <div class="card-label">
+                Classification
+              </div>
+
+              <div class="card-value">
+                Original Season 1 Tester
+              </div>
+
+              <div class="card-label">
+                Status
+              </div>
+
+              <div class="card-value">
+                Productivity Interrupted By Dancing
+              </div>
+
+              <div class="flip-hint">
+                Tap to flip →
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="card-face card-back">
+
+            <div class="card-content">
+
+              <div class="card-topline">
+
+                <span>
+                  FAIL AT WHAT YOU LOVE
+                </span>
+
+                <span>
+                  SEASON 1
+                </span>
+
+              </div>
+
+              <div class="card-rule"></div>
+
+              <div
+                class="chrome-title"
+                style="font-size:2.3rem;"
+              >
+                MUSICAL<br>MESS
+              </div>
+
+              <div class="card-rule"></div>
+
+              <div class="card-label">
+                Round
+              </div>
+
+              <div class="card-value">
+                Surprise, It's Worse!
+              </div>
+
+              <div class="card-label">
+                Mission
+              </div>
+
+              <div class="card-value">
+                Complete the task while surviving mandatory dance interruptions.
+              </div>
+
+              <div class="card-label">
+                FAWYL Difficulty
+              </div>
+
+              <div class="meter">
+                ████░
+              </div>
+
+              <div class="card-label">
+                Chance of forgetting what you were doing
+              </div>
+
+              <div class="meter">
+                █████
+              </div>
+
+              <div class="card-label">
+                Original Tester
+              </div>
+
+              <div class="card-value">
+                Traci
+              </div>
+
+              <div class="flip-hint">
+                Tap to flip back →
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p style="text-align:center;">
+        A physical version of this collector card is planned as part of the
+        Season 1 game collection.
+      </p>
+
+      <p style="text-align:center;">
+        <strong>
+          Meaning yes. You get to say you had yours first.
+        </strong>
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<footer class="footer">
+
+  <h2>
+    THANK YOU, TRACI.
+  </h2>
+
+  <p>
+    For being early.
+  </p>
+
+  <p>
+    For being patient.
+  </p>
+
+  <p>
+    For helping build this while we're still figuring it out.
+  </p>
+
+  <br>
+
+  <h3>
+    DO THE THING.<br>
+    FAIL AT THE THING.<br>
+    LOVE THE THING.
+  </h3>
+
+  <p>
+    — FAWYL
+  </p>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   SCRATCH CARD
+========================= */
+
+const scratchCanvas =
+  document.getElementById(
+    "scratchCanvas"
+  );
+
+const scratchCtx =
+  scratchCanvas.getContext(
+    "2d"
+  );
+
+
+function sizeScratchCanvas() {
+
+  const rect =
+    scratchCanvas
+      .getBoundingClientRect();
+
+  const ratio =
+    window.devicePixelRatio || 1;
+
+  scratchCanvas.width =
+    rect.width * ratio;
+
+  scratchCanvas.height =
+    rect.height * ratio;
+
+  scratchCtx.setTransform(
+    ratio,
+    0,
+    0,
+    ratio,
+    0,
+    0
+  );
+
+  const gradient =
+    scratchCtx
+      .createLinearGradient(
+        0,
+        0,
+        rect.width,
+        rect.height
+      );
+
+  gradient.addColorStop(
+    0,
+    "#b7b7b7"
+  );
+
+  gradient.addColorStop(
+    .5,
+    "#eeeeee"
+  );
+
+  gradient.addColorStop(
+    1,
+    "#969696"
+  );
+
+  scratchCtx
+    .globalCompositeOperation =
+    "source-over";
+
+  scratchCtx.fillStyle =
+    gradient;
+
+  scratchCtx.fillRect(
+    0,
+    0,
+    rect.width,
+    rect.height
+  );
+
+  scratchCtx.fillStyle =
+    "#222";
+
+  scratchCtx.textAlign =
+    "center";
+
+  scratchCtx.font =
+    "900 28px Arial";
+
+  scratchCtx.fillText(
+    "SCRATCH ME",
+    rect.width / 2,
+    rect.height / 2
+  );
+
+  scratchCtx.font =
+    "700 16px Arial";
+
+  scratchCtx.fillText(
+    "YOUR GAME IS UNDER HERE",
+    rect.width / 2,
+    rect.height / 2 + 35
+  );
+
+}
+
+sizeScratchCanvas();
+
+
+let scratching =
+  false;
+
+let hasScratched =
+  false;
+
+
+function scratch(x, y) {
+
+  const rect =
+    scratchCanvas
+      .getBoundingClientRect();
+
+  const px =
+    x - rect.left;
+
+  const py =
+    y - rect.top;
+
+  scratchCtx
+    .globalCompositeOperation =
+    "destination-out";
+
+  scratchCtx.beginPath();
+
+  scratchCtx.arc(
+    px,
+    py,
+    32,
+    0,
+    Math.PI * 2
+  );
+
+  scratchCtx.fill();
+
+  hasScratched =
+    true;
+
+}
+
+
+scratchCanvas.addEventListener(
+  "pointerdown",
+  e => {
+
+    scratching =
+      true;
+
+    scratchCanvas
+      .setPointerCapture(
+        e.pointerId
+      );
+
+    scratch(
+      e.clientX,
+      e.clientY
+    );
+
+  }
+);
+
+
+scratchCanvas.addEventListener(
+  "pointermove",
+  e => {
+
+    if (!scratching) return;
+
+    scratch(
+      e.clientX,
+      e.clientY
+    );
+
+  }
+);
+
+
+scratchCanvas.addEventListener(
+  "pointerup",
+  e => {
+
+    scratching =
+      false;
+
+    if (
+      scratchCanvas
+        .hasPointerCapture(
+          e.pointerId
+        )
+    ) {
+
+      scratchCanvas
+        .releasePointerCapture(
+          e.pointerId
+        );
+
+    }
+
+    if (hasScratched) {
+
+      setTimeout(
+        () => {
+
+          scratchCanvas
+            .style.display =
+            "none";
+
+        },
+        250
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================
+   OPEN GAME
+========================= */
+
+document
+  .getElementById(
+    "openGameBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      scratchCanvas
+        .style.display =
+        "none";
+
+      const game =
+        document
+          .getElementById(
+            "game"
+          );
+
+      game.style.display =
+        "flex";
+
+      game.scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+  );
+
+
+/* =========================
+   MUSICAL MESS
+========================= */
+
+const taskButton =
+  document.getElementById(
+    "taskButton"
+  );
+
+const danceAlert =
+  document.getElementById(
+    "danceAlert"
+  );
+
+const danceButton =
+  document.getElementById(
+    "danceButton"
+  );
+
+const progressBar =
+  document.getElementById(
+    "progressBar"
+  );
+
+const progressNumber =
+  document.getElementById(
+    "progressNumber"
+  );
+
+const gameMessage =
+  document.getElementById(
+    "gameMessage"
+  );
+
+const resultBox =
+  document.getElementById(
+    "resultBox"
+  );
+
+
+let progress =
+  0;
+
+let danceMode =
+  false;
+
+let finished =
+  false;
+
+let danceTimeout =
+  null;
+
+
+/* RANDOM DANCE INTERRUPTION */
+
+function scheduleDance() {
+
+  if (finished) return;
+
+  const delay =
+    1500 +
+    Math.random() * 2500;
+
+  danceTimeout =
+    setTimeout(
+      () => {
+
+        if (
+          finished ||
+          danceMode
+        ) {
+          return;
+        }
+
+        danceMode =
+          true;
+
+        danceAlert
+          .style.display =
+          "block";
+
+        gameMessage
+          .textContent =
+          "THE MUSIC HAS SPOKEN.";
+
+        /*
+          If they don't respond
+          within about 2.4 seconds,
+          they lose a step.
+        */
+
+        setTimeout(
+          () => {
+
+            if (
+              danceMode &&
+              !finished
+            ) {
+
+              progress =
+                Math.max(
+                  0,
+                  progress - 1
+                );
+
+              updateProgress();
+
+              gameMessage
+                .textContent =
+                "You ignored the dance cue. Progress has been revoked. Brutal.";
+
+              danceMode =
+                false;
+
+              danceAlert
+                .style.display =
+                "none";
+
+              scheduleDance();
+
+            }
+
+          },
+          2400
+        );
+
+      },
+      delay
+    );
+
+}
+
+
+/* TASK BUTTON */
+
+taskButton.addEventListener(
+  "click",
+  () => {
+
+    if (finished) return;
+
+    if (danceMode) {
+
+      progress =
+        Math.max(
+          0,
+          progress - 1
+        );
+
+      updateProgress();
+
+      gameMessage
+        .textContent =
+        "TRACI. YOU WERE SUPPOSED TO DANCE. You lost a step. 😂";
+
+      return;
+
+    }
+
+    progress++;
+
+    updateProgress();
+
+    const messages = [
+      "A thing was accomplished.",
+      "Productivity! Suspicious.",
+      "Okay look at you go.",
+      "This is going alarmingly well.",
+      "Another imaginary object successfully organized.",
+      "We may have underestimated you.",
+      "Almost there. Which usually means something terrible is coming."
+    ];
+
+    if (
+      progress < 8
+    ) {
+
+      gameMessage
+        .textContent =
+        messages[
+          Math.floor(
+            Math.random() *
+            messages.length
+          )
+        ];
+
+    }
+
+    if (
+      progress >= 8
+    ) {
+
+      finishGame();
+
+    }
+
+  }
+);
+
+
+/* DANCE RESPONSE */
+
+danceButton.addEventListener(
+  "click",
+  () => {
+
+    if (
+      !danceMode ||
+      finished
+    ) {
+      return;
+    }
+
+    danceMode =
+      false;
+
+    danceAlert
+      .style.display =
+      "none";
+
+    const danceMessages = [
+      "Dance acknowledged. Carry on.",
+      "Beautiful. Probably.",
+      "The judges definitely saw that.",
+      "Mandatory movement complete.",
+      "Excellent work. Back to your fake job."
+    ];
+
+    gameMessage
+      .textContent =
+      danceMessages[
+        Math.floor(
+          Math.random() *
+          danceMessages.length
+        )
+      ];
+
+    scheduleDance();
+
+  }
+);
+
+
+/* UPDATE PROGRESS */
+
+function updateProgress() {
+
+  if (progress > 8) {
+    progress = 8;
+  }
+
+  progressNumber
+    .textContent =
+    progress;
+
+  const percentage =
+    (progress / 8) * 100;
+
+  progressBar
+    .style.width =
+    percentage + "%";
+
+}
+
+
+/* FINISH */
+
+function finishGame() {
+
+  finished =
+    true;
+
+  danceMode =
+    false;
+
+  clearTimeout(
+    danceTimeout
+  );
+
+  taskButton.disabled =
+    true;
+
+  taskButton
+    .textContent =
+    "TASK COMPLETE ✓";
+
+  danceAlert
+    .style.display =
+    "none";
+
+  gameMessage
+    .textContent =
+    "You actually finished. Rude.";
+
+  resultBox
+    .style.display =
+    "block";
+
+  resultBox
+    .scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+}
+
+
+/* START INTERRUPTIONS */
+
+taskButton.addEventListener(
+  "pointerdown",
+  () => {
+
+    if (
+      progress === 0 &&
+      !danceTimeout &&
+      !finished
+    ) {
+
+      scheduleDance();
+
+    }
+
+  },
+  {
+    once: true
+  }
+);
+
+
+/* =========================
+   FEEDBACK
+========================= */
+
+document
+  .getElementById(
+    "feedbackBtn"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      const feedback =
+        document
+          .getElementById(
+            "feedback"
+          );
+
+      feedback
+        .style.display =
+        "flex";
+
+      feedback
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+  );
+
+
+document
+  .getElementById(
+    "submitFeedback"
+  )
+  .addEventListener(
+    "click",
+    () => {
+
+      const feedbackData = {
+
+        tester:
+          "Traci",
+
+        game:
+          "Musical Mess",
+
+        fun:
+          document
+            .getElementById(
+              "funRating"
+            ).value,
+
+        rules:
+          document
+            .getElementById(
+              "rulesRating"
+            ).value,
+
+        difficulty:
+          document
+            .getElementById(
+              "difficultyRating"
+            ).value,
+
+        playAgain:
+          document
+            .getElementById(
+              "playAgain"
+            ).value,
+
+        confused:
+          document
+            .getElementById(
+              "confused"
+            ).value,
+
+        favorite:
+          document
+            .getElementById(
+              "favorite"
+            ).value,
+
+        change:
+          document
+            .getElementById(
+              "change"
+            ).value,
+
+        broken:
+          document
+            .getElementById(
+              "broken"
+            ).value
+
+      };
+
+
+      localStorage.setItem(
+        "fawylTraciFeedback",
+        JSON.stringify(
+          feedbackData
+        )
+      );
+
+
+      const collector =
+        document
+          .getElementById(
+            "collector"
+          );
+
+      collector
+        .style.display =
+        "flex";
+
+      collector
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
+  );
+
+
+/* =========================
+   COLLECTOR CARD
+========================= */
+
+document
+  .getElementById(
+    "collectorCard"
+  )
+  .addEventListener(
+    "click",
+    function() {
+
+      this.classList.toggle(
+        "flipped"
+      );
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
