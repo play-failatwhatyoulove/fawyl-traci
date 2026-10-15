@@ -10,400 +10,568 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
 
 :root {
-  --yellow: #ffe600;
-  --pink: #ff3ca6;
-  --blue: #34d9ff;
-  --purple: #824cff;
-  --green: #48f0a4;
-  --black: #111111;
-  --cream: #fffcef;
-  --white: #ffffff;
+  --yellow:#ffe600;
+  --pink:#ff3ca6;
+  --blue:#34d9ff;
+  --purple:#824cff;
+  --green:#48f0a4;
+  --black:#111;
+  --cream:#fffcef;
+  --white:#fff;
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 body {
-  margin: 0;
-  font-family: "Karla", sans-serif;
+  margin:0;
+  font-family:"Karla",sans-serif;
   background:
-    radial-gradient(circle at top left, rgba(255,60,166,.25), transparent 35%),
-    radial-gradient(circle at bottom right, rgba(52,217,255,.25), transparent 35%),
+    radial-gradient(circle at top left,rgba(255,60,166,.25),transparent 35%),
+    radial-gradient(circle at bottom right,rgba(52,217,255,.25),transparent 35%),
     #101018;
-  color: var(--white);
+  color:white;
 }
 
 button,
 input,
 textarea,
 select {
-  font: inherit;
+  font:inherit;
 }
 
 button {
-  cursor: pointer;
+  cursor:pointer;
 }
 
 .page {
-  min-height: 100vh;
-  padding: 70px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height:100vh;
+  padding:70px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .container {
-  width: min(900px, 100%);
+  width:min(900px,100%);
 }
 
 .card {
-  background: var(--cream);
-  color: var(--black);
-  border: 4px solid var(--black);
-  border-radius: 28px;
-  padding: 45px;
-  box-shadow: 12px 12px 0 var(--black);
-  position: relative;
-  overflow: hidden;
+  background:var(--cream);
+  color:var(--black);
+  border:4px solid var(--black);
+  border-radius:28px;
+  padding:45px;
+  box-shadow:12px 12px 0 var(--black);
+  position:relative;
+  overflow:hidden;
 }
 
 .badge {
-  display: inline-block;
-  background: var(--yellow);
-  border: 3px solid var(--black);
-  border-radius: 999px;
-  padding: 8px 16px;
-  font-size: .85rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  margin-bottom: 20px;
+  display:inline-block;
+  background:var(--yellow);
+  border:3px solid var(--black);
+  border-radius:999px;
+  padding:8px 16px;
+  font-size:.85rem;
+  font-weight:800;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:20px;
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Space Grotesk", sans-serif;
-  margin-top: 0;
+  font-family:"Space Grotesk",sans-serif;
+  margin-top:0;
 }
 
 h1 {
-  font-size: clamp(3rem, 9vw, 6.4rem);
-  line-height: .9;
-  margin-bottom: 22px;
+  font-size:clamp(3rem,9vw,6.4rem);
+  line-height:.9;
+  margin-bottom:22px;
 }
 
 h2 {
-  font-size: clamp(2.1rem, 6vw, 4rem);
-  line-height: 1;
+  font-size:clamp(2.1rem,6vw,4rem);
+  line-height:1;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size:1.5rem;
 }
 
 .big-copy {
-  font-size: 1.3rem;
-  line-height: 1.6;
-  max-width: 700px;
+  font-size:1.3rem;
+  line-height:1.6;
+  max-width:700px;
 }
 
 .small {
-  opacity: .7;
+  opacity:.7;
 }
 
 .btn {
-  border: 3px solid var(--black);
-  border-radius: 15px;
-  background: var(--pink);
-  color: var(--black);
-  padding: 15px 22px;
-  font-weight: 900;
-  box-shadow: 5px 5px 0 var(--black);
-  transition: .15s ease;
-  display: inline-block;
-  text-decoration: none;
-  margin-top: 18px;
+  border:3px solid var(--black);
+  border-radius:15px;
+  background:var(--pink);
+  color:var(--black);
+  padding:15px 22px;
+  font-weight:900;
+  box-shadow:5px 5px 0 var(--black);
+  transition:.15s ease;
+  display:inline-block;
+  text-decoration:none;
+  margin-top:18px;
 }
 
 .btn:hover {
-  transform: translate(3px, 3px);
-  box-shadow: 2px 2px 0 var(--black);
+  transform:translate(3px,3px);
+  box-shadow:2px 2px 0 var(--black);
 }
 
 .btn.blue {
-  background: var(--blue);
+  background:var(--blue);
 }
 
 .btn.yellow {
-  background: var(--yellow);
+  background:var(--yellow);
 }
 
 .btn.green {
-  background: var(--green);
+  background:var(--green);
 }
 
 .merch-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin: 30px 0;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+  margin:30px 0;
 }
 
 .merch {
-  padding: 20px;
-  border: 3px solid var(--black);
-  border-radius: 18px;
-  font-weight: 800;
-  background: white;
+  padding:20px;
+  border:3px solid var(--black);
+  border-radius:18px;
+  font-weight:800;
+  background:white;
 }
 
 .status {
-  margin-top: 30px;
-  background: var(--black);
-  color: white;
-  border-radius: 18px;
-  padding: 25px;
+  margin-top:30px;
+  background:var(--black);
+  color:white;
+  border-radius:18px;
+  padding:25px;
 }
 
 .status p {
-  margin: 8px 0;
+  margin:8px 0;
 }
 
 /* SCRATCH */
 
 .scratch-wrap {
-  max-width: 680px;
-  margin: 30px auto;
+  max-width:680px;
+  margin:30px auto;
 }
 
 .scratch-card {
-  position: relative;
-  width: 100%;
-  min-height: 330px;
-  border: 4px solid var(--black);
-  border-radius: 25px;
-  overflow: hidden;
+  position:relative;
+  width:100%;
+  min-height:330px;
+  border:4px solid var(--black);
+  border-radius:25px;
+  overflow:hidden;
   background:
-    radial-gradient(circle at top left, var(--pink), transparent 50%),
-    linear-gradient(135deg, var(--purple), var(--blue));
+    radial-gradient(circle at top left,var(--pink),transparent 50%),
+    linear-gradient(135deg,var(--purple),var(--blue));
 }
 
 .reveal-content {
-  min-height: 330px;
-  padding: 45px 25px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: white;
+  min-height:330px;
+  padding:45px 25px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  color:white;
 }
 
 .reveal-content h2 {
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  margin-bottom: 10px;
+  font-size:clamp(2.5rem,8vw,5rem);
+  margin-bottom:10px;
 }
 
 #scratchCanvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  touch-action: none;
-  cursor: crosshair;
-  z-index: 5;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  touch-action:none;
+  cursor:crosshair;
+  z-index:5;
 }
 
 .scratch-note {
-  text-align: center;
-  font-weight: 800;
-  margin-top: 12px;
+  text-align:center;
+  font-weight:800;
+  margin-top:12px;
 }
 
 /* GAME */
 
 .game-area {
-  display: none;
+  display:none;
 }
 
 .game-panel {
-  border: 3px solid var(--black);
-  border-radius: 20px;
-  padding: 25px;
-  background: white;
-  margin-top: 25px;
+  border:3px solid var(--black);
+  border-radius:22px;
+  padding:25px;
+  background:white;
+  margin-top:25px;
 }
 
-.progress-shell {
-  height: 30px;
-  background: #ddd;
-  border: 3px solid var(--black);
-  border-radius: 999px;
-  overflow: hidden;
-  margin: 25px 0;
+.game-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
 }
 
-.progress-bar {
-  height: 100%;
-  width: 0%;
-  background: var(--green);
-  transition: width .25s ease;
+.timer-box,
+.score-box {
+  border:3px solid var(--black);
+  border-radius:16px;
+  padding:14px 18px;
+  font-weight:900;
+  background:var(--yellow);
 }
 
-.task-box {
-  padding: 30px;
-  border: 3px solid var(--black);
-  border-radius: 20px;
-  background: var(--cream);
-  text-align: center;
-  margin-top: 20px;
+.timer-box span,
+.score-box span {
+  font-size:1.5rem;
 }
 
-.task-button {
-  width: 100%;
-  min-height: 100px;
-  border: 4px solid var(--black);
-  border-radius: 18px;
-  background: var(--blue);
-  font-size: 1.4rem;
-  font-weight: 900;
-  box-shadow: 6px 6px 0 var(--black);
+.game-instructions {
+  border:3px solid var(--black);
+  border-radius:18px;
+  padding:18px;
+  background:var(--cream);
+  margin-bottom:25px;
 }
 
-.task-button:active {
-  transform: translate(3px, 3px);
-  box-shadow: 3px 3px 0 var(--black);
+.game-board {
+  display:grid;
+  grid-template-columns:1fr 1.2fr;
+  gap:25px;
+  align-items:start;
 }
 
-.dance-alert {
-  display: none;
-  margin-top: 25px;
-  padding: 30px;
-  border: 4px solid var(--black);
-  border-radius: 20px;
+.inventory {
+  border:3px solid var(--black);
+  border-radius:20px;
+  padding:20px;
+  background:#f4f4f4;
+}
+
+.inventory h3 {
+  margin-bottom:15px;
+}
+
+.costume-grid {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.costume-item {
+  border:3px solid var(--black);
+  border-radius:14px;
+  padding:14px 10px;
+  background:white;
+  font-weight:900;
+  min-height:72px;
+  transition:.12s ease;
+}
+
+.costume-item:hover {
+  background:var(--yellow);
+}
+
+.costume-item.selected {
+  background:var(--pink);
+  transform:scale(1.03);
+}
+
+.costume-item.used {
+  opacity:.35;
+  cursor:default;
+}
+
+.mannequin-wrap {
+  border:3px solid var(--black);
+  border-radius:20px;
+  padding:20px;
   background:
-    linear-gradient(
-      135deg,
-      var(--pink),
-      var(--yellow),
-      var(--blue)
-    );
-  text-align: center;
-  animation: pulseDance .55s infinite alternate;
+    linear-gradient(180deg,#dff8ff 0%,#fff 100%);
+  text-align:center;
 }
 
-@keyframes pulseDance {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.025);
-  }
+.mannequin {
+  position:relative;
+  width:280px;
+  height:470px;
+  margin:0 auto;
 }
 
-.dance-alert h2 {
-  font-size: clamp(3rem, 10vw, 6rem);
-  margin-bottom: 10px;
+.person-head {
+  position:absolute;
+  top:25px;
+  left:100px;
+  width:80px;
+  height:80px;
+  border:4px solid var(--black);
+  border-radius:50%;
+  background:#ffd9bd;
 }
 
-.dance-button {
-  border: 4px solid var(--black);
-  border-radius: 18px;
-  padding: 18px 25px;
-  background: white;
-  font-weight: 900;
-  font-size: 1.25rem;
-  box-shadow: 5px 5px 0 var(--black);
+.person-body {
+  position:absolute;
+  top:105px;
+  left:75px;
+  width:130px;
+  height:175px;
+  border:4px solid var(--black);
+  border-radius:35px 35px 20px 20px;
+  background:#ddd;
 }
 
-.game-message {
-  min-height: 40px;
-  margin-top: 20px;
-  font-weight: 900;
-  font-size: 1.1rem;
-  text-align: center;
+.person-arm-left,
+.person-arm-right {
+  position:absolute;
+  top:135px;
+  width:45px;
+  height:155px;
+  border:4px solid var(--black);
+  border-radius:22px;
+  background:#ffd9bd;
+}
+
+.person-arm-left {
+  left:30px;
+  transform:rotate(10deg);
+}
+
+.person-arm-right {
+  right:30px;
+  transform:rotate(-10deg);
+}
+
+.person-leg-left,
+.person-leg-right {
+  position:absolute;
+  top:275px;
+  width:55px;
+  height:155px;
+  border:4px solid var(--black);
+  border-radius:18px;
+  background:#bbb;
+}
+
+.person-leg-left {
+  left:76px;
+}
+
+.person-leg-right {
+  right:76px;
+}
+
+.drop-zone {
+  position:absolute;
+  border:3px dashed rgba(0,0,0,.45);
+  border-radius:16px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  font-size:.72rem;
+  font-weight:900;
+  text-transform:uppercase;
+  transition:.15s ease;
+  z-index:5;
+}
+
+.drop-zone:hover,
+.drop-zone.active {
+  background:rgba(255,230,0,.6);
+  border-color:var(--black);
+}
+
+.zone-head {
+  top:0;
+  left:70px;
+  width:140px;
+  height:105px;
+}
+
+.zone-torso {
+  top:105px;
+  left:65px;
+  width:150px;
+  height:180px;
+}
+
+.zone-left {
+  top:115px;
+  left:0;
+  width:80px;
+  height:190px;
+}
+
+.zone-right {
+  top:115px;
+  right:0;
+  width:80px;
+  height:190px;
+}
+
+.zone-feet {
+  bottom:0;
+  left:55px;
+  width:170px;
+  height:90px;
+}
+
+.placed-item {
+  position:absolute;
+  z-index:10;
+  font-size:2.5rem;
+  filter:drop-shadow(2px 2px 0 #111);
+  pointer-events:none;
+}
+
+.zone-head .placed-item,
+.zone-torso .placed-item,
+.zone-left .placed-item,
+.zone-right .placed-item,
+.zone-feet .placed-item {
+  position:static;
+}
+
+.selected-note {
+  min-height:45px;
+  margin-top:18px;
+  padding:12px;
+  border:3px solid var(--black);
+  border-radius:14px;
+  background:var(--blue);
+  font-weight:900;
+  text-align:center;
 }
 
 .result-box {
-  display: none;
-  margin-top: 25px;
-  padding: 25px;
-  border: 3px solid var(--black);
-  border-radius: 18px;
-  background: var(--yellow);
-  text-align: center;
+  display:none;
+  margin-top:25px;
+  padding:25px;
+  border:3px solid var(--black);
+  border-radius:18px;
+  background:var(--yellow);
+  text-align:center;
+}
+
+.result-stat-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin:20px 0;
+}
+
+.result-stat {
+  background:white;
+  border:3px solid var(--black);
+  border-radius:14px;
+  padding:15px;
+}
+
+.result-stat strong {
+  display:block;
+  font-size:1.8rem;
 }
 
 /* FEEDBACK */
 
 .feedback {
-  display: none;
+  display:none;
 }
 
 .rating-row {
-  margin: 25px 0;
+  margin:25px 0;
 }
 
 .rating-row label {
-  display: block;
-  font-weight: 900;
-  margin-bottom: 8px;
+  display:block;
+  font-weight:900;
+  margin-bottom:8px;
 }
 
 .rating-row select,
 textarea {
-  width: 100%;
-  padding: 14px;
-  border: 3px solid var(--black);
-  border-radius: 12px;
-  background: white;
+  width:100%;
+  padding:14px;
+  border:3px solid var(--black);
+  border-radius:12px;
+  background:white;
 }
 
 textarea {
-  min-height: 110px;
-  resize: vertical;
-  margin-top: 8px;
+  min-height:110px;
+  resize:vertical;
+  margin-top:8px;
 }
 
 /* CHROME CARD */
 
 .collector-section {
-  display: none;
+  display:none;
 }
 
 .flip-wrap {
-  perspective: 1600px;
-  max-width: 430px;
-  margin: 45px auto;
+  perspective:1600px;
+  max-width:430px;
+  margin:45px auto;
 }
 
 .collector-card {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 2.5 / 3.5;
-  transform-style: preserve-3d;
-  transition: transform .75s cubic-bezier(.2,.7,.2,1);
-  cursor: pointer;
+  position:relative;
+  width:100%;
+  aspect-ratio:2.5 / 3.5;
+  transform-style:preserve-3d;
+  transition:transform .75s cubic-bezier(.2,.7,.2,1);
+  cursor:pointer;
 }
 
 .collector-card.flipped {
-  transform: rotateY(180deg);
+  transform:rotateY(180deg);
 }
 
 .card-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border-radius: 26px;
-  padding: 28px;
-  overflow: hidden;
-  border: 2px solid rgba(255,255,255,.55);
+  position:absolute;
+  inset:0;
+  backface-visibility:hidden;
+  border-radius:26px;
+  padding:28px;
+  overflow:hidden;
+  border:2px solid rgba(255,255,255,.55);
   box-shadow:
     0 0 0 2px #111,
     0 20px 60px rgba(0,0,0,.45),
@@ -411,9 +579,9 @@ textarea {
 }
 
 .card-face::before {
-  content: "";
-  position: absolute;
-  inset: 0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:
     linear-gradient(
       115deg,
@@ -426,14 +594,14 @@ textarea {
       rgba(255,255,255,.28) 82%,
       transparent 100%
     );
-  mix-blend-mode: screen;
-  pointer-events: none;
+  mix-blend-mode:screen;
+  pointer-events:none;
 }
 
 .card-face::after {
-  content: "";
-  position: absolute;
-  inset: -40%;
+  content:"";
+  position:absolute;
+  inset:-40%;
   background:
     conic-gradient(
       from 0deg,
@@ -442,14 +610,14 @@ textarea {
       rgba(255,255,0,.12),
       rgba(0,255,255,.15)
     );
-  animation: holoSpin 8s linear infinite;
-  opacity: .45;
-  pointer-events: none;
+  animation:holoSpin 8s linear infinite;
+  opacity:.45;
+  pointer-events:none;
 }
 
 @keyframes holoSpin {
   to {
-    transform: rotate(360deg);
+    transform:rotate(360deg);
   }
 }
 
@@ -463,7 +631,7 @@ textarea {
       #111318 68%,
       #050506 100%
     );
-  color: white;
+  color:white;
 }
 
 .card-back {
@@ -475,30 +643,30 @@ textarea {
       #111 55%,
       #22262d 100%
     );
-  color: white;
-  transform: rotateY(180deg);
+  color:white;
+  transform:rotateY(180deg);
 }
 
 .card-content {
-  position: relative;
-  z-index: 3;
+  position:relative;
+  z-index:3;
 }
 
 .card-topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: .78rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  opacity: .85;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:.78rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  opacity:.85;
 }
 
 .chrome-title {
-  margin-top: 36px;
-  font-size: clamp(2.4rem, 8vw, 4.2rem);
-  line-height: .92;
-  letter-spacing: -.04em;
+  margin-top:36px;
+  font-size:clamp(2.4rem,8vw,4.2rem);
+  line-height:.92;
+  letter-spacing:-.04em;
   background:
     linear-gradient(
       180deg,
@@ -509,35 +677,35 @@ textarea {
       #eeeeee 75%,
       #8f949c 100%
     );
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-transform: uppercase;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  text-transform:uppercase;
 }
 
 .chrome-subtitle {
-  margin-top: 16px;
-  font-size: 1rem;
-  text-transform: uppercase;
-  letter-spacing: .15em;
-  color: #d9d9d9;
+  margin-top:16px;
+  font-size:1rem;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  color:#d9d9d9;
 }
 
 .tester-stamp {
-  display: inline-block;
-  margin-top: 30px;
-  padding: 8px 13px;
-  border: 1px solid rgba(255,255,255,.6);
-  border-radius: 999px;
-  font-size: .76rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  background: rgba(255,255,255,.06);
+  display:inline-block;
+  margin-top:30px;
+  padding:8px 13px;
+  border:1px solid rgba(255,255,255,.6);
+  border-radius:999px;
+  font-size:.76rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  background:rgba(255,255,255,.06);
 }
 
 .card-rule {
-  height: 1px;
+  height:1px;
   background:
     linear-gradient(
       90deg,
@@ -545,49 +713,49 @@ textarea {
       rgba(255,255,255,.7),
       transparent
     );
-  margin: 28px 0;
+  margin:28px 0;
 }
 
 .card-label {
-  font-size: .72rem;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-  opacity: .65;
-  margin-bottom: 5px;
+  font-size:.72rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  opacity:.65;
+  margin-bottom:5px;
 }
 
 .card-value {
-  font-size: 1rem;
-  font-weight: 800;
-  margin-bottom: 18px;
+  font-size:1rem;
+  font-weight:800;
+  margin-bottom:18px;
 }
 
 .meter {
-  margin: 7px 0 20px;
-  font-family: monospace;
-  font-size: 1.35rem;
-  letter-spacing: .1em;
+  margin:7px 0 20px;
+  font-family:monospace;
+  font-size:1.35rem;
+  letter-spacing:.1em;
 }
 
 .flip-hint {
-  position: absolute;
-  bottom: 22px;
-  left: 28px;
-  right: 28px;
-  text-align: center;
-  font-size: .75rem;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  opacity: .7;
+  position:absolute;
+  bottom:22px;
+  left:28px;
+  right:28px;
+  text-align:center;
+  font-size:.75rem;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  opacity:.7;
 }
 
 .chrome-orb {
-  position: absolute;
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  right: -45px;
-  bottom: 45px;
+  position:absolute;
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  right:-45px;
+  bottom:45px;
   background:
     radial-gradient(
       circle at 30% 30%,
@@ -601,31 +769,44 @@ textarea {
   box-shadow:
     inset -15px -15px 35px rgba(0,0,0,.5),
     0 0 45px rgba(110,220,255,.16);
-  z-index: 1;
+  z-index:1;
 }
 
 .footer {
-  text-align: center;
-  padding: 70px 20px;
+  text-align:center;
+  padding:70px 20px;
 }
 
 .hidden {
-  display: none !important;
+  display:none !important;
 }
 
-@media (max-width: 650px) {
+@media(max-width:700px) {
+
   .card {
-    padding: 28px 22px;
-    border-radius: 20px;
-    box-shadow: 7px 7px 0 var(--black);
+    padding:28px 22px;
+    border-radius:20px;
+    box-shadow:7px 7px 0 var(--black);
   }
 
-  .merch-grid {
-    grid-template-columns: 1fr;
+  .merch-grid,
+  .game-board,
+  .result-stat-grid {
+    grid-template-columns:1fr;
+  }
+
+  .costume-grid {
+    grid-template-columns:repeat(2,1fr);
   }
 
   .page {
-    padding: 45px 14px;
+    padding:45px 14px;
+  }
+
+  .mannequin {
+    transform:scale(.9);
+    transform-origin:top center;
+    margin-bottom:-45px;
   }
 }
 </style>
@@ -667,7 +848,6 @@ textarea {
   </div>
 </section>
 
-
 <section class="page" id="merch">
   <div class="container">
     <div class="card">
@@ -706,8 +886,14 @@ textarea {
       <h3>Your Tester Drop</h3>
 
       <div class="merch-grid">
-        <div class="merch">🧥 FAWYL Hoodie</div>
-        <div class="merch">👕 FAWYL Shirt</div>
+
+        <div class="merch">
+          🧥 FAWYL Hoodie
+        </div>
+
+        <div class="merch">
+          👕 FAWYL Shirt
+        </div>
 
         <div class="merch">
           🎁 Bonus Gift #1<br>
@@ -718,6 +904,7 @@ textarea {
           🎁 Bonus Gift #2<br>
           <span class="small">EXTREMELY CLASSIFIED</span>
         </div>
+
       </div>
 
       <div class="status">
@@ -736,14 +923,17 @@ textarea {
   </div>
 </section>
 
-
 <section class="page" id="reveal">
   <div class="container">
     <div class="card">
 
-      <span class="badge">Your Game Is Waiting</span>
+      <span class="badge">
+        Your Game Is Waiting
+      </span>
 
-      <h2>SCRATCH TO REVEAL IT.</h2>
+      <h2>
+        SCRATCH TO REVEAL IT.
+      </h2>
 
       <p>
         Every original tester is getting an early digital version of a Season 1 game.
@@ -753,7 +943,9 @@ textarea {
         But I'm not just telling you which one.
       </p>
 
-      <p><strong>Obviously.</strong></p>
+      <p>
+        <strong>Obviously.</strong>
+      </p>
 
       <div class="scratch-wrap">
 
@@ -766,12 +958,12 @@ textarea {
             </p>
 
             <h2>
-              MUSICAL<br>MESS
+              COUNTDOWN<br>COSTUME SWAP
             </h2>
 
             <p>
               <strong>ROUND:</strong>
-              Surprise, It's Worse!
+              This Should Be Easy...
             </p>
 
             <button class="btn yellow" id="openGameBtn">
@@ -794,7 +986,6 @@ textarea {
   </div>
 </section>
 
-
 <section class="page game-area" id="game">
   <div class="container">
     <div class="card">
@@ -804,115 +995,256 @@ textarea {
       </span>
 
       <h2>
-        MUSICAL MESS
+        COUNTDOWN COSTUME SWAP
       </h2>
 
       <p class="big-copy">
-        Complete your extremely important task.
+        Welcome to wardrobe.
       </p>
 
       <h3>
-        Unfortunately, we reserve the right to interrupt you with mandatory dancing.
+        Your job is to dress this poor person as incorrectly as possible.
       </h3>
 
       <div class="status">
 
         <strong>HOW THIS WORKS</strong>
 
-        <p>🧩 Complete 8 task steps.</p>
-        <p>👆 Hit the task button to make progress.</p>
-        <p>🎵 Randomly, the music will interrupt you.</p>
-        <p>💃 When DANCE appears, stop everything and hit the dance button.</p>
-        <p>💀 Ignore a dance cue and you'll lose progress.</p>
+        <p>👗 Pick a costume piece.</p>
+        <p>👆 Then pick where you want to put it.</p>
+        <p>✅ Correct placement gets 1 point.</p>
+        <p>🔥 Wrong placement gets 3 points.</p>
+        <p>⏱️ You have 45 seconds once you hit START.</p>
 
       </div>
 
       <div class="game-panel">
 
-        <h3>
-          TASK PROGRESS
-        </h3>
+        <div class="game-top">
 
-        <div class="progress-shell">
+          <div class="timer-box">
+            TIME:
+            <span id="timer">45</span>
+          </div>
 
-          <div
-            class="progress-bar"
-            id="progressBar"
-          ></div>
+          <div class="score-box">
+            STYLE CRIMES:
+            <span id="score">0</span>
+          </div>
 
         </div>
 
-        <p style="text-align:center;font-weight:900;">
-          <span id="progressNumber">0</span> / 8 COMPLETE
-        </p>
+        <div class="game-instructions">
 
-        <div class="task-box">
+          <strong>
+            IMPORTANT:
+          </strong>
 
-          <p>
-            Your official task:
-          </p>
+          The goal is not good fashion.
 
-          <h3>
-            ORGANIZE THE COMPLETELY IMAGINARY STACK OF OBJECTS
+          The goal is confidence.
+
+        </div>
+
+        <button class="btn blue" id="startGameBtn">
+          START THE CLOCK →
+        </button>
+
+        <div class="game-board">
+
+          <div class="inventory">
+
+            <h3>
+              COSTUME PILE
+            </h3>
+
+            <div class="costume-grid" id="costumeGrid">
+
+              <button
+                class="costume-item"
+                data-name="Crown"
+                data-icon="👑"
+                data-correct="head"
+              >
+                👑<br>CROWN
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Sunglasses"
+                data-icon="🕶️"
+                data-correct="head"
+              >
+                🕶️<br>GLASSES
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Tie"
+                data-icon="👔"
+                data-correct="torso"
+              >
+                👔<br>TIE
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Cape"
+                data-icon="🦸"
+                data-correct="torso"
+              >
+                🦸<br>CAPE
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Boot"
+                data-icon="🥾"
+                data-correct="feet"
+              >
+                🥾<br>BOOT
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Sock"
+                data-icon="🧦"
+                data-correct="feet"
+              >
+                🧦<br>SOCK
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Glove"
+                data-icon="🧤"
+                data-correct="left"
+              >
+                🧤<br>GLOVE
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Bag"
+                data-icon="👜"
+                data-correct="right"
+              >
+                👜<br>BAG
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Hat"
+                data-icon="🎩"
+                data-correct="head"
+              >
+                🎩<br>HAT
+              </button>
+
+              <button
+                class="costume-item"
+                data-name="Scarf"
+                data-icon="🧣"
+                data-correct="torso"
+              >
+                🧣<br>SCARF
+              </button>
+
+            </div>
+
+            <div class="selected-note" id="selectedNote">
+              Hit START, then choose an item.
+            </div>
+
+          </div>
+
+
+          <div class="mannequin-wrap">
+
+            <h3>
+              THE VICTIM
+            </h3>
+
+            <div class="mannequin">
+
+              <div class="person-head"></div>
+              <div class="person-body"></div>
+              <div class="person-arm-left"></div>
+              <div class="person-arm-right"></div>
+              <div class="person-leg-left"></div>
+              <div class="person-leg-right"></div>
+
+              <button
+                class="drop-zone zone-head"
+                data-zone="head"
+              >
+                HEAD
+              </button>
+
+              <button
+                class="drop-zone zone-torso"
+                data-zone="torso"
+              >
+                TORSO
+              </button>
+
+              <button
+                class="drop-zone zone-left"
+                data-zone="left"
+              >
+                LEFT<br>ARM
+              </button>
+
+              <button
+                class="drop-zone zone-right"
+                data-zone="right"
+              >
+                RIGHT<br>ARM
+              </button>
+
+              <button
+                class="drop-zone zone-feet"
+                data-zone="feet"
+              >
+                FEET
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="result-box" id="resultBox">
+
+          <h2>
+            TIME'S UP.
+          </h2>
+
+          <div class="result-stat-grid">
+
+            <div class="result-stat">
+              <strong id="itemsResult">0</strong>
+              ITEMS EQUIPPED
+            </div>
+
+            <div class="result-stat">
+              <strong id="wrongResult">0</strong>
+              USED INCORRECTLY
+            </div>
+
+            <div class="result-stat">
+              <strong id="scoreResult">0</strong>
+              STYLE CRIMES
+            </div>
+
+          </div>
+
+          <h3 id="verdict">
+            Fashion happened.
           </h3>
 
-          <button
-            class="task-button"
-            id="taskButton"
-          >
-            COMPLETE NEXT TASK STEP
-          </button>
-
-        </div>
-
-        <div
-          class="dance-alert"
-          id="danceAlert"
-        >
-
-          <h2>
-            DANCE!
-          </h2>
-
-          <p>
-            STOP WHAT YOU'RE DOING.
-          </p>
-
-          <button
-            class="dance-button"
-            id="danceButton"
-          >
-            💃 I DANCED
-          </button>
-
-        </div>
-
-        <div
-          class="game-message"
-          id="gameMessage"
-        ></div>
-
-        <div
-          class="result-box"
-          id="resultBox"
-        >
-
-          <h2>
-            YOU FINISHED.
-          </h2>
-
-          <p class="big-copy">
-            Against all musical interference.
-          </p>
-
-          <p>
-            HR has been notified about the dancing.
-          </p>
-
-          <button
-            class="btn"
-            id="feedbackBtn"
-          >
+          <button class="btn" id="feedbackBtn">
             GIVE TESTER FEEDBACK →
           </button>
 
@@ -924,14 +1256,8 @@ textarea {
   </div>
 </section>
 
-
-<section
-  class="page feedback"
-  id="feedback"
->
-
+<section class="page feedback" id="feedback">
   <div class="container">
-
     <div class="card">
 
       <span class="badge">
@@ -943,11 +1269,11 @@ textarea {
       </h2>
 
       <p class="big-copy">
-        You completed your task.
+        You dressed someone.
       </p>
 
       <p>
-        And apparently attended several surprise dance breaks.
+        Whether they consent to being seen in public is another issue.
       </p>
 
       <div class="rating-row">
@@ -1017,66 +1343,35 @@ textarea {
       </div>
 
       <div class="rating-row">
-
-        <label>
-          What confused you?
-        </label>
-
+        <label>What confused you?</label>
         <textarea id="confused"></textarea>
-
       </div>
 
       <div class="rating-row">
-
-        <label>
-          What was your favorite part?
-        </label>
-
+        <label>What was your favorite part?</label>
         <textarea id="favorite"></textarea>
-
       </div>
 
       <div class="rating-row">
-
-        <label>
-          What would you change?
-        </label>
-
+        <label>What would you change?</label>
         <textarea id="change"></textarea>
-
       </div>
 
       <div class="rating-row">
-
-        <label>
-          Did anything break or behave weirdly?
-        </label>
-
+        <label>Did anything break or behave weirdly?</label>
         <textarea id="broken"></textarea>
-
       </div>
 
-      <button
-        class="btn green"
-        id="submitFeedback"
-      >
+      <button class="btn green" id="submitFeedback">
         SAVE MY FEEDBACK →
       </button>
 
     </div>
-
   </div>
-
 </section>
 
-
-<section
-  class="page collector-section"
-  id="collector"
->
-
+<section class="page collector-section" id="collector">
   <div class="container">
-
     <div class="card">
 
       <span class="badge">
@@ -1092,16 +1387,12 @@ textarea {
       </p>
 
       <h3>
-        Which means you're officially one of the people who were here before
-        we knew whether any of this actually worked.
+        Which means you're officially one of the people who were here before we knew whether any of this actually worked.
       </h3>
 
       <div class="flip-wrap">
 
-        <div
-          class="collector-card"
-          id="collectorCard"
-        >
+        <div class="collector-card" id="collectorCard">
 
           <div class="card-face card-front">
 
@@ -1128,7 +1419,7 @@ textarea {
               </div>
 
               <div class="chrome-subtitle">
-                Musical Mess
+                Countdown Costume Swap
               </div>
 
               <div class="tester-stamp">
@@ -1150,7 +1441,7 @@ textarea {
               </div>
 
               <div class="card-value">
-                Productivity Interrupted By Dancing
+                Dressed With Confidence. Accuracy Unclear.
               </div>
 
               <div class="flip-hint">
@@ -1160,7 +1451,6 @@ textarea {
             </div>
 
           </div>
-
 
           <div class="card-face card-back">
 
@@ -1182,9 +1472,9 @@ textarea {
 
               <div
                 class="chrome-title"
-                style="font-size:2.3rem;"
+                style="font-size:2rem;"
               >
-                MUSICAL<br>MESS
+                COUNTDOWN<br>COSTUME SWAP
               </div>
 
               <div class="card-rule"></div>
@@ -1194,7 +1484,7 @@ textarea {
               </div>
 
               <div class="card-value">
-                Surprise, It's Worse!
+                This Should Be Easy...
               </div>
 
               <div class="card-label">
@@ -1202,7 +1492,7 @@ textarea {
               </div>
 
               <div class="card-value">
-                Complete the task while surviving mandatory dance interruptions.
+                Wear as many costume pieces as possible in increasingly incorrect ways.
               </div>
 
               <div class="card-label">
@@ -1210,11 +1500,11 @@ textarea {
               </div>
 
               <div class="meter">
-                ████░
+                ███░░
               </div>
 
               <div class="card-label">
-                Chance of forgetting what you were doing
+                Chance of becoming a fashion criminal
               </div>
 
               <div class="meter">
@@ -1242,8 +1532,7 @@ textarea {
       </div>
 
       <p style="text-align:center;">
-        A physical version of this collector card is planned as part of the
-        Season 1 game collection.
+        A physical version of this collector card is planned as part of the Season 1 game collection.
       </p>
 
       <p style="text-align:center;">
@@ -1253,11 +1542,8 @@ textarea {
       </p>
 
     </div>
-
   </div>
-
 </section>
-
 
 <footer class="footer">
 
@@ -1265,17 +1551,9 @@ textarea {
     THANK YOU, TRACI.
   </h2>
 
-  <p>
-    For being early.
-  </p>
-
-  <p>
-    For being patient.
-  </p>
-
-  <p>
-    For helping build this while we're still figuring it out.
-  </p>
+  <p>For being early.</p>
+  <p>For being patient.</p>
+  <p>For helping build this while we're still figuring it out.</p>
 
   <br>
 
@@ -1291,29 +1569,20 @@ textarea {
 
 </footer>
 
-
 <script>
 
-/* =========================
-   SCRATCH CARD
-========================= */
+/* SCRATCH CARD */
 
 const scratchCanvas =
-  document.getElementById(
-    "scratchCanvas"
-  );
+  document.getElementById("scratchCanvas");
 
 const scratchCtx =
-  scratchCanvas.getContext(
-    "2d"
-  );
-
+  scratchCanvas.getContext("2d");
 
 function sizeScratchCanvas() {
 
   const rect =
-    scratchCanvas
-      .getBoundingClientRect();
+    scratchCanvas.getBoundingClientRect();
 
   const ratio =
     window.devicePixelRatio || 1;
@@ -1334,13 +1603,12 @@ function sizeScratchCanvas() {
   );
 
   const gradient =
-    scratchCtx
-      .createLinearGradient(
-        0,
-        0,
-        rect.width,
-        rect.height
-      );
+    scratchCtx.createLinearGradient(
+      0,
+      0,
+      rect.width,
+      rect.height
+    );
 
   gradient.addColorStop(
     0,
@@ -1357,8 +1625,7 @@ function sizeScratchCanvas() {
     "#969696"
   );
 
-  scratchCtx
-    .globalCompositeOperation =
+  scratchCtx.globalCompositeOperation =
     "source-over";
 
   scratchCtx.fillStyle =
@@ -1394,11 +1661,9 @@ function sizeScratchCanvas() {
     rect.width / 2,
     rect.height / 2 + 35
   );
-
 }
 
 sizeScratchCanvas();
-
 
 let scratching =
   false;
@@ -1406,12 +1671,10 @@ let scratching =
 let hasScratched =
   false;
 
-
-function scratch(x, y) {
+function scratch(x,y) {
 
   const rect =
-    scratchCanvas
-      .getBoundingClientRect();
+    scratchCanvas.getBoundingClientRect();
 
   const px =
     x - rect.left;
@@ -1419,8 +1682,7 @@ function scratch(x, y) {
   const py =
     y - rect.top;
 
-  scratchCtx
-    .globalCompositeOperation =
+  scratchCtx.globalCompositeOperation =
     "destination-out";
 
   scratchCtx.beginPath();
@@ -1437,9 +1699,7 @@ function scratch(x, y) {
 
   hasScratched =
     true;
-
 }
-
 
 scratchCanvas.addEventListener(
   "pointerdown",
@@ -1448,10 +1708,9 @@ scratchCanvas.addEventListener(
     scratching =
       true;
 
-    scratchCanvas
-      .setPointerCapture(
-        e.pointerId
-      );
+    scratchCanvas.setPointerCapture(
+      e.pointerId
+    );
 
     scratch(
       e.clientX,
@@ -1460,7 +1719,6 @@ scratchCanvas.addEventListener(
 
   }
 );
-
 
 scratchCanvas.addEventListener(
   "pointermove",
@@ -1476,7 +1734,6 @@ scratchCanvas.addEventListener(
   }
 );
 
-
 scratchCanvas.addEventListener(
   "pointerup",
   e => {
@@ -1485,16 +1742,14 @@ scratchCanvas.addEventListener(
       false;
 
     if (
-      scratchCanvas
-        .hasPointerCapture(
-          e.pointerId
-        )
+      scratchCanvas.hasPointerCapture(
+        e.pointerId
+      )
     ) {
 
-      scratchCanvas
-        .releasePointerCapture(
-          e.pointerId
-        );
+      scratchCanvas.releasePointerCapture(
+        e.pointerId
+      );
 
     }
 
@@ -1503,8 +1758,7 @@ scratchCanvas.addEventListener(
       setTimeout(
         () => {
 
-          scratchCanvas
-            .style.display =
+          scratchCanvas.style.display =
             "none";
 
         },
@@ -1517,71 +1771,53 @@ scratchCanvas.addEventListener(
 );
 
 
-/* =========================
-   OPEN GAME
-========================= */
+/* OPEN GAME */
 
 document
-  .getElementById(
-    "openGameBtn"
-  )
+  .getElementById("openGameBtn")
   .addEventListener(
     "click",
     () => {
 
-      scratchCanvas
-        .style.display =
+      scratchCanvas.style.display =
         "none";
 
       const game =
-        document
-          .getElementById(
-            "game"
-          );
+        document.getElementById(
+          "game"
+        );
 
       game.style.display =
         "flex";
 
       game.scrollIntoView({
-        behavior: "smooth"
+        behavior:"smooth"
       });
 
     }
   );
 
 
-/* =========================
-   MUSICAL MESS
-========================= */
+/* COSTUME GAME */
 
-const taskButton =
+const startGameBtn =
   document.getElementById(
-    "taskButton"
+    "startGameBtn"
   );
 
-const danceAlert =
+const timerDisplay =
   document.getElementById(
-    "danceAlert"
+    "timer"
   );
 
-const danceButton =
+const scoreDisplay =
   document.getElementById(
-    "danceButton"
+    "score"
   );
 
-const progressBar =
+const selectedNote =
   document.getElementById(
-    "progressBar"
-  );
-
-const progressNumber =
-  document.getElementById(
-    "progressNumber"
-  );
-
-const gameMessage =
-  document.getElementById(
-    "gameMessage"
+    "selectedNote"
   );
 
 const resultBox =
@@ -1589,300 +1825,346 @@ const resultBox =
     "resultBox"
   );
 
+const costumeItems =
+  document.querySelectorAll(
+    ".costume-item"
+  );
 
-let progress =
-  0;
+const zones =
+  document.querySelectorAll(
+    ".drop-zone"
+  );
 
-let danceMode =
+let gameRunning =
   false;
 
-let finished =
-  false;
+let timeLeft =
+  45;
 
-let danceTimeout =
+let timerInterval =
   null;
 
+let selectedItem =
+  null;
 
-/* RANDOM DANCE INTERRUPTION */
+let score =
+  0;
 
-function scheduleDance() {
+let placed =
+  0;
 
-  if (finished) return;
+let wrongPlacements =
+  0;
 
-  const delay =
-    1500 +
-    Math.random() * 2500;
 
-  danceTimeout =
-    setTimeout(
+/* START */
+
+startGameBtn.addEventListener(
+  "click",
+  () => {
+
+    if (gameRunning) return;
+
+    gameRunning =
+      true;
+
+    startGameBtn.disabled =
+      true;
+
+    startGameBtn.textContent =
+      "WARDROBE EMERGENCY IN PROGRESS";
+
+    selectedNote.textContent =
+      "Pick a costume item.";
+
+    timerInterval =
+      setInterval(
+        () => {
+
+          timeLeft--;
+
+          timerDisplay.textContent =
+            timeLeft;
+
+          if (timeLeft <= 0) {
+
+            endGame();
+
+          }
+
+        },
+        1000
+      );
+
+  }
+);
+
+
+/* PICK ITEM */
+
+costumeItems.forEach(
+  item => {
+
+    item.addEventListener(
+      "click",
       () => {
 
         if (
-          finished ||
-          danceMode
+          !gameRunning ||
+          item.classList.contains("used")
         ) {
           return;
         }
 
-        danceMode =
-          true;
+        costumeItems.forEach(
+          button => {
 
-        danceAlert
-          .style.display =
-          "block";
+            button.classList.remove(
+              "selected"
+            );
 
-        gameMessage
-          .textContent =
-          "THE MUSIC HAS SPOKEN.";
-
-        /*
-          If they don't respond
-          within about 2.4 seconds,
-          they lose a step.
-        */
-
-        setTimeout(
-          () => {
-
-            if (
-              danceMode &&
-              !finished
-            ) {
-
-              progress =
-                Math.max(
-                  0,
-                  progress - 1
-                );
-
-              updateProgress();
-
-              gameMessage
-                .textContent =
-                "You ignored the dance cue. Progress has been revoked. Brutal.";
-
-              danceMode =
-                false;
-
-              danceAlert
-                .style.display =
-                "none";
-
-              scheduleDance();
-
-            }
-
-          },
-          2400
+          }
         );
 
-      },
-      delay
+        item.classList.add(
+          "selected"
+        );
+
+        selectedItem =
+          item;
+
+        selectedNote.textContent =
+          `${item.dataset.icon} ${item.dataset.name} selected. Now put it somewhere questionable.`;
+
+      }
     );
 
-}
+  }
+);
 
 
-/* TASK BUTTON */
+/* PLACE ITEM */
 
-taskButton.addEventListener(
-  "click",
-  () => {
+zones.forEach(
+  zone => {
 
-    if (finished) return;
+    zone.addEventListener(
+      "click",
+      () => {
 
-    if (danceMode) {
+        if (
+          !gameRunning ||
+          !selectedItem
+        ) {
+          return;
+        }
 
-      progress =
-        Math.max(
-          0,
-          progress - 1
+        const chosenZone =
+          zone.dataset.zone;
+
+        const correctZone =
+          selectedItem.dataset.correct;
+
+        const icon =
+          selectedItem.dataset.icon;
+
+        const name =
+          selectedItem.dataset.name;
+
+        const display =
+          document.createElement(
+            "span"
+          );
+
+        display.className =
+          "placed-item";
+
+        display.textContent =
+          icon;
+
+        zone.innerHTML = "";
+
+        zone.appendChild(
+          display
         );
 
-      updateProgress();
+        placed++;
 
-      gameMessage
-        .textContent =
-        "TRACI. YOU WERE SUPPOSED TO DANCE. You lost a step. 😂";
+        if (
+          chosenZone === correctZone
+        ) {
 
-      return;
+          score +=
+            1;
 
-    }
+          selectedNote.textContent =
+            `${name} placed correctly. Fine. Sensible. Boring. +1`;
 
-    progress++;
+        } else {
 
-    updateProgress();
+          score +=
+            3;
 
-    const messages = [
-      "A thing was accomplished.",
-      "Productivity! Suspicious.",
-      "Okay look at you go.",
-      "This is going alarmingly well.",
-      "Another imaginary object successfully organized.",
-      "We may have underestimated you.",
-      "Almost there. Which usually means something terrible is coming."
-    ];
+          wrongPlacements++;
 
-    if (
-      progress < 8
-    ) {
+          const comments = [
+            "Deeply incorrect. Excellent.",
+            "Fashion law has been violated.",
+            "That's absolutely not where that goes.",
+            "Bold. Wrong. Inspired.",
+            "The wardrobe department has resigned.",
+            "Perfectly terrible placement."
+          ];
 
-      gameMessage
-        .textContent =
-        messages[
-          Math.floor(
-            Math.random() *
-            messages.length
-          )
-        ];
+          selectedNote.textContent =
+            `${name}: ${
+              comments[
+                Math.floor(
+                  Math.random() *
+                  comments.length
+                )
+              ]
+            } +3`;
 
-    }
+        }
 
-    if (
-      progress >= 8
-    ) {
+        scoreDisplay.textContent =
+          score;
 
-      finishGame();
+        selectedItem.classList.remove(
+          "selected"
+        );
 
-    }
+        selectedItem.classList.add(
+          "used"
+        );
 
-  }
-);
+        selectedItem.disabled =
+          true;
+
+        selectedItem =
+          null;
 
 
-/* DANCE RESPONSE */
+        if (
+          placed ===
+          costumeItems.length
+        ) {
 
-danceButton.addEventListener(
-  "click",
-  () => {
+          endGame();
 
-    if (
-      !danceMode ||
-      finished
-    ) {
-      return;
-    }
+        }
 
-    danceMode =
-      false;
-
-    danceAlert
-      .style.display =
-      "none";
-
-    const danceMessages = [
-      "Dance acknowledged. Carry on.",
-      "Beautiful. Probably.",
-      "The judges definitely saw that.",
-      "Mandatory movement complete.",
-      "Excellent work. Back to your fake job."
-    ];
-
-    gameMessage
-      .textContent =
-      danceMessages[
-        Math.floor(
-          Math.random() *
-          danceMessages.length
-        )
-      ];
-
-    scheduleDance();
+      }
+    );
 
   }
 );
 
 
-/* UPDATE PROGRESS */
+/* END GAME */
 
-function updateProgress() {
+function endGame() {
 
-  if (progress > 8) {
-    progress = 8;
-  }
+  if (!gameRunning) return;
 
-  progressNumber
-    .textContent =
-    progress;
-
-  const percentage =
-    (progress / 8) * 100;
-
-  progressBar
-    .style.width =
-    percentage + "%";
-
-}
-
-
-/* FINISH */
-
-function finishGame() {
-
-  finished =
-    true;
-
-  danceMode =
+  gameRunning =
     false;
 
-  clearTimeout(
-    danceTimeout
+  clearInterval(
+    timerInterval
   );
 
-  taskButton.disabled =
-    true;
+  timerDisplay.textContent =
+    "0";
 
-  taskButton
-    .textContent =
-    "TASK COMPLETE ✓";
+  costumeItems.forEach(
+    item => {
 
-  danceAlert
-    .style.display =
-    "none";
+      item.disabled =
+        true;
 
-  gameMessage
-    .textContent =
-    "You actually finished. Rude.";
+    }
+  );
 
-  resultBox
-    .style.display =
+  zones.forEach(
+    zone => {
+
+      zone.disabled =
+        true;
+
+    }
+  );
+
+  startGameBtn.classList.add(
+    "hidden"
+  );
+
+  document.getElementById(
+    "itemsResult"
+  ).textContent =
+    placed;
+
+  document.getElementById(
+    "wrongResult"
+  ).textContent =
+    wrongPlacements;
+
+  document.getElementById(
+    "scoreResult"
+  ).textContent =
+    score;
+
+
+  const verdict =
+    document.getElementById(
+      "verdict"
+    );
+
+
+  if (
+    wrongPlacements >= 7
+  ) {
+
+    verdict.textContent =
+      "FINAL VERDICT: YOU HAVE BEEN BANNED FROM WARDROBE.";
+
+  } else if (
+    wrongPlacements >= 4
+  ) {
+
+    verdict.textContent =
+      "FINAL VERDICT: QUESTIONABLE. CONFIDENT. DISTURBING.";
+
+  } else if (
+    wrongPlacements >= 2
+  ) {
+
+    verdict.textContent =
+      "FINAL VERDICT: YOU TRIED TO BE WRONG. WE RESPECT THE EFFORT.";
+
+  } else {
+
+    verdict.textContent =
+      "FINAL VERDICT: FAR TOO RESPONSIBLE. PLEASE DO WORSE NEXT TIME.";
+
+  }
+
+  selectedNote.textContent =
+    "The runway is closed.";
+
+  resultBox.style.display =
     "block";
 
-  resultBox
-    .scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
+  resultBox.scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
 
 }
 
 
-/* START INTERRUPTIONS */
-
-taskButton.addEventListener(
-  "pointerdown",
-  () => {
-
-    if (
-      progress === 0 &&
-      !danceTimeout &&
-      !finished
-    ) {
-
-      scheduleDance();
-
-    }
-
-  },
-  {
-    once: true
-  }
-);
-
-
-/* =========================
-   FEEDBACK
-========================= */
+/* FEEDBACK */
 
 document
   .getElementById(
@@ -1893,19 +2175,16 @@ document
     () => {
 
       const feedback =
-        document
-          .getElementById(
-            "feedback"
-          );
+        document.getElementById(
+          "feedback"
+        );
 
-      feedback
-        .style.display =
+      feedback.style.display =
         "flex";
 
-      feedback
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+      feedback.scrollIntoView({
+        behavior:"smooth"
+      });
 
     }
   );
@@ -1925,58 +2204,55 @@ document
           "Traci",
 
         game:
-          "Musical Mess",
+          "Countdown Costume Swap",
+
+        score:
+          score,
+
+        wrongPlacements:
+          wrongPlacements,
 
         fun:
-          document
-            .getElementById(
-              "funRating"
-            ).value,
+          document.getElementById(
+            "funRating"
+          ).value,
 
         rules:
-          document
-            .getElementById(
-              "rulesRating"
-            ).value,
+          document.getElementById(
+            "rulesRating"
+          ).value,
 
         difficulty:
-          document
-            .getElementById(
-              "difficultyRating"
-            ).value,
+          document.getElementById(
+            "difficultyRating"
+          ).value,
 
         playAgain:
-          document
-            .getElementById(
-              "playAgain"
-            ).value,
+          document.getElementById(
+            "playAgain"
+          ).value,
 
         confused:
-          document
-            .getElementById(
-              "confused"
-            ).value,
+          document.getElementById(
+            "confused"
+          ).value,
 
         favorite:
-          document
-            .getElementById(
-              "favorite"
-            ).value,
+          document.getElementById(
+            "favorite"
+          ).value,
 
         change:
-          document
-            .getElementById(
-              "change"
-            ).value,
+          document.getElementById(
+            "change"
+          ).value,
 
         broken:
-          document
-            .getElementById(
-              "broken"
-            ).value
+          document.getElementById(
+            "broken"
+          ).value
 
       };
-
 
       localStorage.setItem(
         "fawylTraciFeedback",
@@ -1985,29 +2261,23 @@ document
         )
       );
 
-
       const collector =
-        document
-          .getElementById(
-            "collector"
-          );
+        document.getElementById(
+          "collector"
+        );
 
-      collector
-        .style.display =
+      collector.style.display =
         "flex";
 
-      collector
-        .scrollIntoView({
-          behavior: "smooth"
-        });
+      collector.scrollIntoView({
+        behavior:"smooth"
+      });
 
     }
   );
 
 
-/* =========================
-   COLLECTOR CARD
-========================= */
+/* COLLECTOR CARD */
 
 document
   .getElementById(
